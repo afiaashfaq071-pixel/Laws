@@ -331,15 +331,300 @@ function App() {
     circumference - (percentage / 100) * circumference;
 
   const getDetailedExplanation = (law) => {
-    return [
-      `${law.title} focuses on understanding how people and situations can affect your decisions and actions.`,
-      `The main idea is to think carefully before reacting instead of allowing emotions or pressure to control your response.`,
-      `In practical situations, this means observing what is happening and choosing an approach that supports your long-term goals.`,
-      `It also encourages you to understand the people around you, because different people respond differently to the same situation.`,
-      `The principle is not about blindly following a rule; it is about developing awareness and making deliberate choices.`,
-      `Use the idea thoughtfully, while considering your own values, relationships, responsibilities, and the consequences of your actions.`,
-    ];
+    const explanations = {
+      1: [
+        "People who hold authority often want to feel that their position is respected.",
+        "Showing too much superiority can make an insecure leader see you as a threat.",
+        "Let your abilities strengthen the environment around you instead of turning success into a competition."
+      ],
+      2: [
+        "Friends may understand you well, but familiarity can sometimes create jealousy or careless behavior.",
+        "A former rival has a reason to prove that they can be trusted and useful.",
+        "Choose collaborators by their behavior, reliability, and skills rather than friendship alone."
+      ],
+
+      3: [
+        "Revealing your complete plan gives other people the chance to interfere with it.",
+        "Keeping your intentions private gives you freedom to change direction when circumstances change.",
+        "Share information according to what is necessary, not simply because someone asks."
+      ],
+
+      4: [
+        "Speaking too much can weaken an otherwise strong idea by adding unnecessary details.",
+        "Short and deliberate communication leaves less room for misunderstanding.",
+        "Before speaking, decide what the other person actually needs to know."
+      ],
+
+      5: [
+        "People often form opinions about you from your previous behavior.",
+        "A strong reputation can create trust before you even explain yourself.",
+        "Protect your credibility by being consistent and addressing mistakes honestly."
+      ],
+
+      6: [
+        "Good work has little impact when nobody notices that it exists.",
+        "Memorable presentation can help your contribution stand apart from ordinary work.",
+        "Seek attention through useful, original results rather than empty self-promotion."
+      ],
+
+      7: [
+        "Large achievements often require combining the abilities of several people.",
+        "Knowing how to organize different skills can save time and improve results.",
+        "Successful collaboration means recognizing contributions rather than simply doing everything yourself."
+      ],
+
+      8: [
+        "Constantly chasing people can place you in a weaker negotiating position.",
+        "Creating something valuable gives others a natural reason to approach you.",
+        "Build opportunities that attract interest instead of depending entirely on pursuit."
+      ],
+
+      9: [
+        "Arguments can become contests where neither side wants to change their position.",
+        "A visible result can demonstrate an idea without requiring a long debate.",
+        "When possible, let evidence and performance communicate what words cannot."
+      ],
+
+      10: [
+        "The attitudes of people around you can influence your own habits and outlook.",
+        "Repeated exposure to destructive behavior can make unhealthy patterns seem normal.",
+        "Choose environments that encourage constructive thinking while still treating struggling people with compassion."
+      ],
+
+      11: [
+        "Valuable skills give you a meaningful role in a team or organization.",
+        "Specializing in something useful can make your contribution difficult to replace.",
+        "Build genuine expertise instead of creating dependence by deliberately withholding knowledge."
+      ],
+
+      12: [
+        "A sincere action can reduce suspicion and establish a foundation of trust.",
+        "Small acts of honesty can sometimes accomplish more than complicated persuasion.",
+        "Trust becomes stronger when your generosity is genuine rather than simply a tactic."
+      ],
+
+      13: [
+        "People are naturally more interested in requests that connect with their own goals.",
+        "Explain clearly how cooperation can create a useful outcome for both sides.",
+        "Understanding another person's priorities helps you make a more practical request."
+      ],
+
+      14: [
+        "Every conversation can teach you something about a person's experience and perspective.",
+        "Careful listening can reveal useful information that careless conversation would miss.",
+        "Build relationships through genuine curiosity rather than treating people merely as sources of information."
+      ],
+
+      15: [
+        "Unresolved serious conflicts can continue producing problems long after the original disagreement.",
+        "A temporary solution may fail if the underlying issue remains untouched.",
+        "When possible, resolve major disputes through clear communication, boundaries, and peaceful solutions."
+      ],
+
+      16: [
+        "Constant availability can cause people to stop noticing the value of your presence.",
+        "Taking appropriate space allows others to experience your absence and appreciate your contribution.",
+        "Balance availability with time for your own priorities and development."
+      ],
+
+      17: [
+        "Predictable behavior allows others to prepare for every response you make.",
+        "Flexibility makes it harder for circumstances to trap you in one fixed approach.",
+        "Being adaptable does not mean being careless; it means responding intelligently to changing conditions."
+      ],
+
+      18: [
+        "Complete isolation can prevent you from hearing important information or discovering opportunities.",
+        "Relationships can provide different perspectives that improve your decisions.",
+        "Protect your independence without cutting yourself off from useful social connections."
+      ],
+
+      19: [
+        "A strategy that works with one personality may fail badly with another.",
+        "Some people value directness, while others respond better to patience and explanation.",
+        "Understand the person's character and circumstances before deciding how to approach them."
+      ],
+
+      20: [
+        "Committing yourself too quickly can reduce your ability to respond when circumstances change.",
+        "Maintaining independence gives you more room to evaluate different opportunities.",
+        "Cooperate with others while keeping your own judgment and responsibilities."
+      ],
+
+      21: [
+        "Showing every skill you possess can sometimes make others defensive or competitive.",
+        "Allowing people to underestimate your knowledge can give you more time to observe.",
+        "Quiet confidence can be more useful than constantly proving how much you know."
+      ],
+
+      22: [
+        "Not every situation should be met with direct resistance.",
+        "Stepping back can protect your resources when the immediate battle is unfavorable.",
+        "A temporary retreat can give you time to recover, learn, and choose a better approach."
+      ],
+
+      23: [
+        "Dividing your attention between too many goals can reduce the quality of everything you do.",
+        "Concentrated effort allows you to develop deeper expertise in an important area.",
+        "Decide which objective deserves the greatest share of your limited time and energy."
+      ],
+
+      24: [
+        "Social environments have different expectations about communication and behavior.",
+        "Tact allows you to disagree or negotiate without unnecessarily creating hostility.",
+        "Good social awareness means knowing when to speak, when to listen, and how to show respect."
+      ],
+
+      25: [
+        "Your current circumstances do not have to permanently determine who you become.",
+        "New skills, habits, and experiences can change the direction of your life.",
+        "Create an identity based on your chosen values and abilities rather than simply accepting an old label."
+      ],
+
+      26: [
+        "Your reputation can suffer when you become unnecessarily connected to other people's harmful actions.",
+        "Handle sensitive situations with clear responsibility and honest communication.",
+        "Keeping your conduct clean means avoiding actions that create problems you could reasonably have prevented."
+      ],
+
+      27: [
+        "People naturally look for communities, meaning, and ideas they can believe in.",
+        "A clear purpose can bring people together around something positive.",
+        "Build belonging through trust and shared values rather than exploiting people's vulnerabilities."
+      ],
+
+      28: [
+        "Constant hesitation can prevent a reasonable plan from ever becoming action.",
+        "Confidence makes your decisions easier for others to understand and respond to.",
+        "Think carefully first, then commit your energy instead of repeatedly doubting every step."
+      ],
+
+      29: [
+        "A decision that looks successful at the beginning can create unexpected problems later.",
+        "Thinking about the final destination helps you recognize obstacles before they appear.",
+        "Prepare alternative routes so one unexpected problem does not destroy the entire plan."
+      ],
+
+      30: [
+        "Smooth performance usually comes from practice that happens long before the final result.",
+        "Preparation allows complicated skills to become natural and efficient.",
+        "The goal is not to hide effort dishonestly, but to develop enough mastery that execution becomes controlled."
+      ],
+
+      31: [
+        "The choices you present can influence how people think about a decision.",
+        "Clear alternatives can make complicated decisions easier to understand.",
+        "Good choice design gives people real options while keeping the important objective visible."
+      ],
+
+      32: [
+        "People often respond strongly to visions of what their future could become.",
+        "Understanding someone's hopes can help you communicate an idea in a meaningful way.",
+        "A realistic and inspiring vision can motivate people more effectively than a list of dry facts."
+      ],
+
+      33: [
+        "People are influenced by different rewards, concerns, ambitions, and personal priorities.",
+        "Observing repeated behavior can reveal what someone genuinely values.",
+        "Understanding motivation helps you communicate with people in ways they can actually respond to."
+      ],
+
+      34: [
+        "Your posture, language, and behavior communicate how you value yourself.",
+        "People often respond to the standards you consistently establish.",
+        "Self-respect is strongest when it appears through calm confidence rather than arrogance."
+      ],
+
+      35: [
+        "An excellent opportunity can disappear if you act before the conditions are ready.",
+        "Waiting can be productive when you use the time to prepare.",
+        "Learn to recognize moments when action is useful and moments when patience is smarter."
+      ],
+
+      36: [
+        "Some goals remain unavailable despite how much attention you give them.",
+        "Repeatedly focusing on an impossible outcome can consume energy needed elsewhere.",
+        "Accept what cannot be controlled and redirect your effort toward achievable objectives."
+      ],
+
+      37: [
+        "People remember experiences that are visually clear and emotionally engaging.",
+        "A strong presentation can turn an ordinary idea into something easier to understand.",
+        "Use design, demonstrations, and memorable details when they genuinely improve communication."
+      ],
+
+      38: [
+        "Independent thinking does not require constant public disagreement.",
+        "Understanding social customs can help you communicate without creating unnecessary resistance.",
+        "Keep your personal beliefs while adapting your behavior appropriately to different environments."
+      ],
+
+      39: [
+        "Strong emotions can cause people to make decisions they would reconsider later.",
+        "Remaining calm gives you more time to understand what is actually happening.",
+        "When situations become chaotic, clear thinking is often more useful than reacting emotionally."
+      ],
+
+      40: [
+        "Something offered for free may still carry conditions, expectations, or hidden costs.",
+        "Paying fairly can sometimes create a clearer and more independent relationship.",
+        "Before accepting an attractive offer, consider what you may actually be giving in return."
+      ],
+
+      41: [
+        "Following a famous predecessor too closely can make your own achievements difficult to recognize.",
+        "Past success can teach valuable lessons without becoming a blueprint you must copy.",
+        "Develop a direction that reflects your own abilities, circumstances, and goals."
+      ],
+
+      42: [
+        "Groups can remain unstable when one central source repeatedly creates conflict.",
+        "Finding the root of a problem is often more effective than treating every symptom separately.",
+        "Address the main cause while avoiding unnecessary harm to people who are not responsible."
+      ],
+
+      43: [
+        "People are more likely to cooperate when they believe their concerns are genuinely understood.",
+        "Listening carefully can reveal needs that are hidden behind someone's words or behavior.",
+        "Respect grows when you consistently consider both logic and human emotion."
+      ],
+
+      44: [
+        "Reflecting someone's communication style can reveal patterns they may not notice themselves.",
+        "Mirroring can help you understand how a person's behavior affects others.",
+        "Use reflection as a tool for awareness and communication rather than deliberately provoking someone."
+      ],
+
+      45: [
+        "People can become defensive when familiar systems are changed too quickly.",
+        "Gradual improvement gives people time to understand and adapt to new methods.",
+        "Keep useful traditions while making carefully chosen changes where improvement is genuinely needed."
+      ],
+
+      46: [
+        "Appearing completely flawless can create unrealistic distance between you and other people.",
+        "Natural imperfections can make success feel more human and relatable.",
+        "Aim for genuine excellence instead of exhausting yourself trying to maintain an impossible image."
+      ],
+
+      47: [
+        "Winning can create excitement that encourages unnecessary additional risks.",
+        "A successful result should be protected before pursuing another challenge.",
+        "Recognizing the stopping point is part of strategic thinking, not a sign of weakness."
+      ],
+
+      48: [
+        "Rigid strategies can become useless when circumstances change unexpectedly.",
+        "Flexibility allows you to adjust your methods without abandoning your important goals.",
+        "Instead of becoming trapped by one identity or approach, remain open to learning and adaptation."
+      ]
+    };
+
+    return explanations[law.id];
+
+
   };
+
 
   return (
     <main className="min-h-screen bg-[#09080d] px-4 py-8 text-white sm:px-6 lg:px-8">
@@ -465,7 +750,7 @@ function App() {
                   <div className="min-w-0">
                     {/* LAW NUMBER */}
                     <p
-                      className={`mb-1 text-[10px] font-bold uppercase tracking-wider ${isCompleted
+                      className={`mb-1 text-[12px] font-bold uppercase tracking-wider ${isCompleted
                         ? "text-violet-400"
                         : "text-violet-500"
                         }`}
@@ -475,7 +760,7 @@ function App() {
 
                     {/* LAW TITLE */}
                     <h2
-                      className={`text-[14px] font-bold leading-snug sm:text-[15px] ${isCompleted
+                      className={`text-[16px] font-bold leading-snug sm:text-[15px] ${isCompleted
                         ? "text-violet-100"
                         : "text-zinc-100"
                         }`}
@@ -528,7 +813,7 @@ function App() {
 
                 {/* DESCRIPTION */}
                 <p
-                  className="pr-8 text-[11px] leading-relaxed text-zinc-400 sm:text-[12px]"
+                  className="pr-8 text-[13px] leading-relaxed text-zinc-400 sm:text-[12px]"
                 >
                   {law.description}
                 </p>
