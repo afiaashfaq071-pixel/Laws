@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#12091f"/>
+      <stop offset="100%" stop-color="#4c1d95"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="12" fill="#08060d"/>
+  <rect x="9" y="6" width="46" height="52" rx="4" fill="url(#bg)"/>
+
+  <path d="M16 14h32M16 19h32" stroke="#c084fc" stroke-width="2"/>
+
+  <text x="32" y="31"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="8"
+        font-weight="700"
+        fill="white">
+    48
+  </text>
+
+  <text x="32" y="39"
+        text-anchor="middle"
+        font-family="Arial, sans-serif"
+        font-size="5"
+        font-weight="700"
+        fill="#c084fc">
+    LAWS
+  </text>
+
+  <path d="M16 46h32M20 50h24"
+        stroke="#ffffff"
+        stroke-opacity=".65"
+        stroke-width="1.5"/>
+</svg>
