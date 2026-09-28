@@ -295,6 +295,7 @@ const STORAGE_KEY = "power-laws-completed";
 
 function App() {
   const [selectedLaw, setSelectedLaw] = useState(null);
+  const [query, setQuery] = useState("");
   const [completedLaws, setCompletedLaws] = useState(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
@@ -624,7 +625,11 @@ function App() {
 
 
   };
-
+  const filteredLaws = laws.filter((law) =>
+    `${law.id} ${law.title} ${law.description}`
+      .toLowerCase()
+      .includes(query.toLowerCase())
+  );
 
   return (
     <main className="min-h-screen bg-[#09080d] px-4 py-8 text-white sm:px-6 lg:px-8">
@@ -731,9 +736,37 @@ function App() {
           </div>
         </section>
 
+        <div className="mb-5 flex gap-2">
+          <input
+            type="text"
+            placeholder="Search laws..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="flex-1 rounded-lg border border-[#2a2640] bg-[#17151f] px-3 py-2.5 text-sm text-white placeholder:text-gray-500 outline-none transition focus:border-violet-500"
+          />
+
+          <button
+            onClick={resetProgress}
+            className="rounded-lg bg-[#9b7ae8] px-4 py-2.5 text-sm font-bold text-black transition hover:bg-violet-400"
+          >
+            Reset
+          </button>
+        </div>
+
+        {query && filteredLaws.length === 0 && (
+          <div className="mt-4 rounded-lg border border-violet-500/20 bg-[#15131d] px-4 py-4 text-center">
+            <p className="text-sm font-semibold text-white">
+              No law found
+            </p>
+            <p className="mt-1 text-xs text-zinc-500">
+              There are only 48 laws. Try searching for Law 1–48.
+            </p>
+          </div>
+        )}
+
         {/* ================= LAWS GRID ================= */}
         <section className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {laws.map((law) => {
+          {filteredLaws.map((law) => {
             const isCompleted = completedLaws.includes(law.id);
 
             return (
